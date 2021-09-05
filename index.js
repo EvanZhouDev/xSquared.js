@@ -102,7 +102,7 @@ let solveQuadratic = (
 
     // Converts an improper fraction to mixed number
     let improperFractionToMixedNumber = (n, d) => {
-        i = parseInt(n / d);
+        let i = parseInt(n / d);
         n -= i * d;
         return [i, Math.abs(n), Math.abs(d)];
     };
