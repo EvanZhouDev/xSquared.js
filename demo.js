@@ -9,30 +9,14 @@ x2Input.addEventListener("change", function () {
 });
 
 xInput.addEventListener("change", function () {
-    // let math = MathJax.Hub.getAllJax("x2")[0];
-    // if (xInput.value < 0) {
-    //     MathJax.Hub.Queue(["Text", math, "x^2-"]);
-    //     xInput.value = Math.abs(xInput.value);
-    // }else{
-    //     MathJax.Hub.Queue(["Text", math, "x^2+"]);
-    // }
     updateSolution();
 });
 
 constantInput.addEventListener("change", function () {
-    // let math = MathJax.Hub.getAllJax("x")[0];
-    // console.log(constantInput.value < 0);
-    // if (constantInput.value < 0) {
-    //     MathJax.Hub.Queue(["Text", math, "x-"]);
-    //     constantInput.value = Math.abs(constantInput.value);
-    // }else{
-    //     MathJax.Hub.Queue(["Text", math, "x+"]);
-    // }
     updateSolution();
 });
 
 let updateSolution = () => {
-    console.log(parseInt(x2Input.value) !== NaN);
     if (
         isNaN(parseInt(x2Input.value)) == false &&
         isNaN(parseInt(xInput.value)) == false &&
@@ -53,7 +37,7 @@ let updateSolution = () => {
         if (solvedQuadratic.length > 2) {
             if (solvedQuadratic[2] == 1) {
                 formatted =
-                "text(The solution is: ) " +
+                "text(The roots are: ) " +
                 solvedQuadratic[0] +
                 "+-" +
                 (solvedQuadratic[1][0] == 1 ? "" : solvedQuadratic[1][0]) +
