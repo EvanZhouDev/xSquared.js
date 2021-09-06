@@ -53,20 +53,20 @@ let updateSolution = () => {
         if (solvedQuadratic.length > 2) {
             if (solvedQuadratic[2] == 1) {
                 formatted =
-                    "text(The solution is: ) " +
-                    solvedQuadratic[0] +
-                    "+-" +
-                    (solvedQuadratic[1][0] == 1 ? "" : solvedQuadratic[1][0]) +
-                    (solvedQuadratic[3] ? "i" : 0) +
-                    "sqrt " +
-                    solvedQuadratic[1][1];
+                "text(The solution is: ) " +
+                solvedQuadratic[0] +
+                "+-" +
+                (solvedQuadratic[1][0] == 1 ? "" : solvedQuadratic[1][0]) +
+                (solvedQuadratic[3] ? "i" : "") +
+                "sqrt " +
+                solvedQuadratic[1][1];
             } else {
                 formatted =
                     "text(The solution is: ) (" +
                     solvedQuadratic[0] +
                     "+-" +
                     (solvedQuadratic[1][0] == 1 ? "" : solvedQuadratic[1][0]) +
-                    (solvedQuadratic[3] ? "i" : 0) +
+                    (solvedQuadratic[3] ? "i" : "") +
                     "sqrt " +
                     solvedQuadratic[1][1] +
                     ") / " +
@@ -74,10 +74,18 @@ let updateSolution = () => {
             }
         } else {
             if (typeof(solvedQuadratic[0]) == "object") {
-                solvedQuadratic[0] = solvedQuadratic[0][0] + " " + solvedQuadratic[0][1] + "/" + solvedQuadratic[0][2];
+                if (solvedQuadratic.legth < 3) {
+                    solvedQuadratic[0] = solvedQuadratic[0][1] + "/" + solvedQuadratic[0][2];
+                }else{
+                    solvedQuadratic[0] = solvedQuadratic[0][0] + solvedQuadratic[0][1] + "/" + solvedQuadratic[0][2];
+                }
             }
             if (typeof(solvedQuadratic[1]) == "object") {
-                solvedQuadratic[1] = solvedQuadratic[1][0] + " " + solvedQuadratic[1][1] + "/" + solvedQuadratic[1][2];
+                if (solvedQuadratic.legth < 3) {
+                    solvedQuadratic[1] = solvedQuadratic[1][1] + "/" + solvedQuadratic[1][2];
+                }else{
+                    solvedQuadratic[1] = solvedQuadratic[1][0] + solvedQuadratic[1][1] + "/" + solvedQuadratic[1][2];
+                }
             }
             formatted =
                 "text(The solutions are: ) {" +
@@ -108,12 +116,4 @@ let updateSolution = () => {
     }
 };
 
-console.log(solveQuadratic(
-    2,
-    4,
-    27,
-    true,
-    true,
-    0
-));
 updateSolution();
