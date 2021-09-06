@@ -11,6 +11,9 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     </head>
     <body>
         <!-- [if lt IE 7]>
@@ -25,8 +28,17 @@
             .input {
                 width: 5%;
                 border: none;
-                font-size: 2em;
+                font-size: 1.8em;
                 text-align: right;
+                background-color: #c9c9c9;
+                border-radius: 10px;
+                color: white;
+                font-family: 'Roboto';
+                font-weight: 300;
+            }
+            
+            .right {
+                text-align: left;
             }
             </style>
         <div class="inline">
@@ -41,7 +53,7 @@
     <h1 id="x" class="inline">
         `x +` 
     </h1>
-    <input id="constantInput" class="inline input" value="c">
+    <input id="constantInput" class="inline input right" value="c">
     
 </input>
 </div>
