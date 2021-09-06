@@ -89,14 +89,23 @@ let solveQuadratic = (
 
     // Reduces a fraction
     let reduce = (n, d, findGcd = false) => {
+        let divide = (num) => {
+            let divisor = 1;
+            while (num*divisor < 1) {
+                divisor = divisor * 10;
+            }
+            return [num*divisor, divisor];
+        }
+        let newN = divide(Math.abs(n));
+        let newD = divide(Math.abs(d));
         let gcd = function gcd(a, b) {
             return b ? gcd(b, a % b) : a;
         };
-        gcd = gcd(n, d);
+        gcd = gcd(newN[0], newD[0]);
         if (findGcd) {
             return gcd;
         } else {
-            return [n / gcd, d / gcd];
+            return [newN[0] / newN[1] / gcd, newD[0] / newD[1] / gcd];
         }
     };
 
@@ -109,18 +118,22 @@ let solveQuadratic = (
 
     // Simplifies a square root
     let simplifySquareRoot = (n) => {
-        let outside_root = 1;
-        let inside_root = Math.abs(n);
-        let d = 2;
-        while (d * d <= inside_root) {
-            if (inside_root % (d * d) == 0) {
-                inside_root = inside_root / (d * d);
-                outside_root = outside_root * d;
-            } else {
-                d = d + 1;
+        if (Math.round(n) == n) {
+            let outside_root = 1;
+            let inside_root = Math.abs(n);
+            let d = 2;
+            while (d * d <= inside_root) {
+                if (inside_root % (d * d) == 0) {
+                    inside_root = inside_root / (d * d);
+                    outside_root = outside_root * d;
+                } else {
+                    d = d + 1;
+                }
             }
+            return [outside_root, inside_root];
+        }else{
+            return [1, n];
         }
-        return [outside_root, inside_root];
     };
 
     // If the discriminant is negative, then the output will be imaginary
@@ -129,7 +142,7 @@ let solveQuadratic = (
     }
 
     // Pair is factorable in rational numbers numbers
-    if (Math.round(Math.sqrt(discrim)) === Math.sqrt(discrim)) {
+    if (Math.round(Math.sqrt(discrim)) === Math.sqrt(discrim) && Math.round(a) == a && Math.round(b) == b && Math.round(b) == b) {
         // Two solutions
         let frac1;
         let frac2;
