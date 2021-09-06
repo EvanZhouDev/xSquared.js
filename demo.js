@@ -1,4 +1,4 @@
-import { factor, solveQuadratic } from "../index.js";
+import { factor, solveQuadratic } from "./index.js";
 
 let x2Input = document.getElementById("x2Input");
 let xInput = document.getElementById("xInput");
