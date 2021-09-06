@@ -51,7 +51,7 @@ console.log(solveQuadratic(a, b, c));
 // [-11, [1, 73], 4, false]
 ```
 
-## Parameters
+## Parameters for SolveQuadratic()
 ### a, b, c
 The first three parameters are in the format of a, b, and c. Each one of those indicates a coefficient or constant in the quadratic equation, formatted like this: ax^2+bx+c.
 
@@ -97,3 +97,6 @@ let c = 3;
 console.log(solveQuadratic(a, b, c, true, true, 0)); // [[1, 1, 2], [2, 3]]
 console.log(solveQuadratic(a, b, c, true, true, 1)); // [1.5, [2, 3]]
 ```
+
+### Fractions & Mixed Numbers
+You may notice that under any return statments, it gives you an array of 2-3 length instead of a number. This is a fraction. Fraction arrays of length 2 are formatted like this: ```[numerator, denominator]```. Fraction arrays of length 3—mixed numbers—are formatted like this: ```[whole number, numerator, demonimator]```
